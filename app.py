@@ -7,7 +7,7 @@ from fix import data_fix
 from fix import column
 import flask
 import learn
-
+import os
 
 app = Flask(__name__)
 
@@ -48,4 +48,5 @@ def download():
     return response
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    port = int(os.getenv("PORT",5000))
+    app.run(host="0.0.0.0",port=port,debug = True)
